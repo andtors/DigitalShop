@@ -6,10 +6,8 @@ const Order = mongoose.model(
     new Schema({
         totalprice: {
             type: Number,
-            required: true
         },
-        user: Object,
-        product: Object
+        user: Object
     },
         { timestamps: true }
     )

@@ -22,8 +22,7 @@ const User = mongoose.model(
         image: {
             type: String,
         },
-        cart: Object,
-        order: Object 
+        cart: [], 
     },
     {timestamps: true},
  )

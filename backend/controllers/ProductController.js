@@ -9,7 +9,8 @@ module.exports = class ProductController{
             price, 
             category,
             description, 
-            images
+            images,
+            quantity
         })
         
         try {

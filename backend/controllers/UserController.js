@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const Product = require('../models/Product')
 const jwt = require('jsonwebtoken')
 const createUserToken = require('../helpers/create-user-token')
 const getToken = require('../helpers/get-token')
@@ -61,4 +62,40 @@ module.exports = class UserController{
         res.status(201).send(currentUser)
     }
 
+    static async addProdToCart(req, res){
+        
+        const productId = req.body.productId
+
+        const token = getToken(req)
+        const decoded = jwt.verify(token, 'digitalshop')
+
+        const currentUser = await User.findById({_id: decoded.id})
+
+        const product = await Product.findById({_id: productId})
+
+        const producToAdd = {
+            _id: product._id,
+            name: product.name,
+            price: product.price,
+            quantity: product.quantity
+        }
+
+        currentUser.cart.push(producToAdd)
+        console.log(currentUser)
+        try {
+            
+            await User.findOneAndUpdate(
+              {_id: currentUser._id},
+              {$set: currentUser},
+               { new: true })
+
+            return res.status(201).send({message: `Produto ${productId} inserido no cart com sucesso!`})
+
+        } catch (error) {
+            return res.status(401).send({message: error})
+        }
+        
+    }
+
+    
 }

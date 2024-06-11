@@ -24,8 +24,10 @@ const Product = mongoose.model(
             type: Array,
             required: true,
         },
-        cart: Object,
-        order: Object
+        quantity : {
+            type: Number,
+            require: true,
+        },
     },
     {timestamps: true}
 )
