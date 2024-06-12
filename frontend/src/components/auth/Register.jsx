@@ -1,16 +1,17 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Link } from "react-router-dom"
-const url = import.meta.env.VITE_API_BACK
-
+import {Context} from '../../context/UserContext'
 import './Register.css'
+
 const Register = () => {
-  
+
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
   const [cpf, setCpf] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const {register} = useContext(Context)
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -23,25 +24,7 @@ const Register = () => {
       confirmPassword
     }
 
-    createUser(user)
-  }
-
-  const createUser = async(user) => {
-  
-    try {
-      
-      const response = await fetch(`${url}/user/register`, {
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify(user)
-      })
-
-      const data = await response.json()
-
-      console.log(data)
-    } catch (error) {
-      console.log(error)
-    }
+    register(user)
   }
 
   return (
