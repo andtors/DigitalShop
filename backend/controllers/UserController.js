@@ -81,7 +81,7 @@ module.exports = class UserController{
         }
 
         currentUser.cart.push(producToAdd)
-        console.log(currentUser)
+        
         try {
             
             await User.findOneAndUpdate(

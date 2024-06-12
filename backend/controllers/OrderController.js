@@ -11,7 +11,7 @@ module.exports = class OrderController {
     const token = getToken(req)
     const decoded = await getUserByToken(token)
 
-    const user = await User.findById({_id: decoded.id})  
+    const user = await User.findById({ _id: decoded.id })
 
     let arrayOfProds = []
 
@@ -20,29 +20,45 @@ module.exports = class OrderController {
     })
 
     let arrayOfProdsPrice = []
+    let arrayOfProdsQtn = []
 
     user.cart.map((p) => {
-      arrayOfProdsPrice.push(p.price) 
+      arrayOfProdsPrice.push(p.price)
+      arrayOfProdsQtn.push(p.quantity)
     })
+
+    
+    if(arrayOfProdsPrice.length === 0) {
+      res.status(401).send({message: 'Não há itens no carrinho!'})
+      return
+    }
 
     let totalProdValue = arrayOfProdsPrice.reduce((sum, p) => {
       return sum + p
-
     })
 
     const order = new Order({
-        totalprice: totalProdValue,
-        user: {
-          _id: user._id,
-          name: user.name,
-          product: arrayOfProds
-        },
+      totalprice: totalProdValue,
+      user: {
+        _id: user._id,
+        name: user.name,
+        product: arrayOfProds
+      },
     })
 
     try {
-
+      
       const newOrder = await order.save()
 
+      while(user.cart.length > 0){
+        user.cart.pop()
+      }
+
+      await User.findOneAndUpdate(
+        {_id: user._id},
+        {$set: user},
+         { new: true })
+      
       res.status(201).json({
         message: 'Ordem criada!',
         newOrder
@@ -53,18 +69,32 @@ module.exports = class OrderController {
 
     }
   }
-  static async getOrders(req, res) {
 
-    let order
+  static async getAllOrders(req, res) {
 
     const token = getToken(req)
     const decoded = await getUserByToken(token)
-    const user = await User.findById({_id : decoded.id})
+    const user = await User.findById({ _id: decoded.id })
 
-    order = await Order.find({'user._id': user._id}).lean()
-  
-    console.log(order[0].user.product[0])
+    const orders = await Order.find({ 'user._id': user._id }).lean()
+
+    return res.status(201).send({ orders })
+  }
+
+  static async getOrderById(req, res) {
     
-    return res.status(201).send({message: 'rota'})
+    const id = req.params.id
+
+    const token = getToken(req)
+
+    const decoded = await getUserByToken(token)
+
+    const user = await User.findById({ _id: decoded.id })
+
+    const orders = await Order.find({ 'user._id': user._id }).lean()
+
+    const order = orders[`${id}`]
+
+    return res.status(201).send({ order })
   }
 }

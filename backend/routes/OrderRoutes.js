@@ -3,6 +3,7 @@ const router = expreess.Router()
 const OrderController = require('../controllers/OrderController')
 
 router.post('/create', OrderController.createOrder)
-router.get('/', OrderController.getOrders)
+router.get('/', OrderController.getAllOrders)
+router.get('/:id', OrderController.getOrderById)
 
 module.exports = router

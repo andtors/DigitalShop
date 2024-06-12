@@ -28,5 +28,44 @@ module.exports = class ProductController{
         }
     }
 
+    static async removeProduct(req, res){
+
+        const id = req.body.id
+
+        const product = Product.findById(id)
+
+        try {
+            
+            await product.deleteOne({'_id': id})
+
+            return res.status(201).send({message: 'Produto deletado com sucesso!'})
+
+        } catch (error) {
+            return res.status(401).send({message: error})
+        }
+    }
+
+    static async getAllProducts(req, res) {
+        
+        const products = await Product.find()
+
+        return res.status(201).send({ products })
+        
+    }
     
+    static async getProductById(req, res) {
+
+        const id = req.params.id
+
+        try {
+            
+            const product = await Product.findById({'_id': id})
+
+            return res.status(201).send({product})
+
+        } catch (error) {
+            return res.status(401).send({message: "Produto não encontrado!"})
+        }
+
+    }
 }

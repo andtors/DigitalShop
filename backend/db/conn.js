@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const dbConn = process.env.DB_CONNECT
 
 async function main(){
-    await mongoose.connect('mongodb://localhost:27017/digitalshop')
+    await mongoose.connect(`${dbConn}`)
     console.log('Conectou ao banco!')
 }
 
