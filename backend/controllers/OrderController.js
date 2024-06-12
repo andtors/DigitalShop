@@ -8,26 +8,20 @@ const getUserByToken = require('../helpers/get-user-by-token')
 module.exports = class OrderController {
   static async createOrder(req, res) {
 
-    const token = getToken(req)
-    const decoded = await getUserByToken(token)
+    const user = await getUserByToken(req)
 
-    const user = await User.findById({ _id: decoded.id })
-
-    let arrayOfProds = []
+    const arrayOfProds = []
 
     user.cart.map((p) => {
       arrayOfProds.push(p)
     })
 
     let arrayOfProdsPrice = []
-    let arrayOfProdsQtn = []
 
     user.cart.map((p) => {
       arrayOfProdsPrice.push(p.price)
-      arrayOfProdsQtn.push(p.quantity)
     })
 
-    
     if(arrayOfProdsPrice.length === 0) {
       res.status(401).send({message: 'Não há itens no carrinho!'})
       return
@@ -72,9 +66,7 @@ module.exports = class OrderController {
 
   static async getAllOrders(req, res) {
 
-    const token = getToken(req)
-    const decoded = await getUserByToken(token)
-    const user = await User.findById({ _id: decoded.id })
+    const user = await getUserByToken(req)
 
     const orders = await Order.find({ 'user._id': user._id }).lean()
 
@@ -85,11 +77,7 @@ module.exports = class OrderController {
     
     const id = req.params.id
 
-    const token = getToken(req)
-
-    const decoded = await getUserByToken(token)
-
-    const user = await User.findById({ _id: decoded.id })
+    const user = await getUserByToken(req)
 
     const orders = await Order.find({ 'user._id': user._id }).lean()
 

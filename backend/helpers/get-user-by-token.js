@@ -2,7 +2,12 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../models/User')
 
-const getUserByToken = async(token) => {
+const getToken = require('../helpers/get-token')
+
+const getUserByToken = async(req) => {
+
+    const token =  getToken(req)
+
     if(!token){
         return res.status(401).json({message: 'Acesso negado!'})
     }

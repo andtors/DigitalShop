@@ -9,8 +9,6 @@ const OrderRouter = require('./routes/OrderRoutes')
 
 app.use(express.json())
 
-app.use(express.static('public'))
-
 app.use('/user' , UserRouter)
 app.use('/product', ProductRouter)
 app.use('/order', OrderRouter)

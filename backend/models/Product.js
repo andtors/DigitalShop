@@ -20,14 +20,10 @@ const Product = mongoose.model(
             type: String,
             required: true,
         },
-        images: {
-            type: Array,
+        image: {
+            type: String,
             required: true,
-        },
-        quantity : {
-            type: Number,
-            require: true,
-        },
+        }
     },
     {timestamps: true}
 )

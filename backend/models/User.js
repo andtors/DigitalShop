@@ -19,9 +19,6 @@ const User = mongoose.model(
         address: {
             type: String,
         },
-        image: {
-            type: String,
-        },
         cart: [], 
     },
     {timestamps: true},
