@@ -28,36 +28,32 @@ const Register = () => {
   }
 
   return (
-    <div className="form-register">
+    <div className="main-div-register">
+      <div className="form-register">
       <h1>Realize o cadastro para acessar o site!</h1>
         <form onSubmit={handleSubmit} >
-            <div>
-            <label>Nome:</label>
+            <label>Nome
             <input type="text" name="name" placeholder="Digite seu nome:" value={name} onChange={(e) => setName(e.target.value)}/>
-            </div>
-            <div>
-            <label>E-mail:</label>
+            </label>
+            <label>E-mail
             <input type="email" name="email" placeholder="Digite seu e-mail:" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            </div>
-            <div>
-            <label>Endereço:</label>
+            </label>
+            <label>Endereço
             <input type="text" name="address" placeholder="Digite seu endereço:" value={address} onChange={(e) => setAddress(e.target.value)}/>
-            </div>
-            <div>
-            <label>CPF:</label>
+            </label>
+            <label>CPF
             <input type="number" name="cpf" placeholder="Digite seu CPF:" value={cpf} onChange={(e) => setCpf(e.target.value)}/>
-            </div>
-            <div>
-            <label>Senha:</label>
+            </label>
+            <label>Senha
             <input type="password" name="password" placeholder="Digite sua senha:" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            </div>
-            <div>
-            <label>Confirme a senha:</label>
+            </label>
+            <label>Confirme a senha
             <input type="password" name="confirmPassword" placeholder="Digite novamente sua senha:" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-            </div>
+            </label>
             <input type="submit" value="Cadastrar"/>
         </form>
-        <p>Já possui conta? <Link to="/login">Clique aqui!</Link> para entrar.</p>
+        <p>Já possui conta? <Link to="/login" className="login-redirect">Clique aqui!</Link> para entrar.</p>
+        </div>
     </div>
   )
 }

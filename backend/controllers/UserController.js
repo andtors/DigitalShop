@@ -127,7 +127,7 @@ module.exports = class UserController {
             _id: product._id,
             name: product.name,
             price: product.price,
-            quantity: product.quantity
+            image: product.image,
         }
 
         user.cart.push(producToAdd)

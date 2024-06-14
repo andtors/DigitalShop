@@ -1,12 +1,14 @@
 import React from 'react'
 import ProductCard from '../layouts/ProductCard'
 
+import './Home.css'
+
 const Home = () => {
   return (
-    <div>
-        <h1>
+    <div className='home-div'>
+      <h1 className='home-title'>Confira nossos produtos:</h1>
+  
           <ProductCard />
-        </h1>
     </div>
   )
 }

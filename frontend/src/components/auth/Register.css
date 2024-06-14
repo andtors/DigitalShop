@@ -1,0 +1,60 @@
+.main-div-register{
+    margin-top: 150px;
+}
+
+.form-register {
+    margin: 0 auto;
+    width: 600px;
+    background-color: #c1c2c5;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.form-register h1 {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+
+}
+
+.form-register label {
+    margin-bottom: 10px;
+}
+
+input {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+input[type="submit"]{
+    text-decoration: none;
+    color: #FFF;
+    background-color: #373A40;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    color: #373A40;
+    background-color: #FFF;
+    transition: .5s;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+}
+
+.login-redirect {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+ }
+
