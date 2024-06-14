@@ -23,7 +23,7 @@ const Register = () => {
   return (
     <div className="main-div-login">
       <div className="form-login">
-        <h1>Realize o cadastro para acessar o site!</h1>
+        <h1>Entre para comprar no site!</h1>
         <form onSubmit={handleSubmit} >
           <div>
             <label>E-mail:</label>

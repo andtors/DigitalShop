@@ -1,0 +1,98 @@
+.div-of-body {
+    margin: 20px;
+}
+
+.cart-product{
+    display: flex;
+    border-bottom: 2px solid #837f7f ;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+.image-other-infos {
+    display: flex;
+}
+
+.product-name-price {
+    margin-left: 10px;
+}
+
+.product-name-price h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.product-name-price a {
+    font-weight: bold;   
+    text-decoration: none;
+    font-size: 0.7em;
+    
+}
+
+.product-name-price p {
+   margin-top: 128totalPriceCalcpx;
+   font-weight: bold;
+   font-size: 1.5em;  
+}
+
+.cart-image img{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.btn-remove-prod {
+    text-decoration: none;
+    color: #FFF;
+    background-color: #373A40;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-remove-prod:hover {
+    color: #373A40;
+    background-color: #FFF;
+    transition: .5s;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+}
+
+.div-btn {
+    margin-top: 10px;
+}
+
+.div-order-btn {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.order-btn {
+    text-decoration: none;
+    color: #FFF;
+    background-color: #373A40;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.order-btn:hover {
+    color: #373A40;
+    background-color: #FFF;
+    transition: .5s;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: .5em .8em;
+}
+
+.div-of-body h2{
+    text-align: center;
+}

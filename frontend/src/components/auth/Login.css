@@ -1,5 +1,6 @@
 .main-div-login{
-    margin-top: 150px;
+    margin-top: 90px;
+    margin-bottom: 394px;
 }
 
 .form-login {
@@ -10,20 +11,22 @@
     border-radius: 5px;
     padding: 10px;
     text-align: center;
+    flex-direction: column;
 }
 
-.form-login h1 {
-    text-align: center;
+.form-login input {
+    font-size: 1em;
+    margin-top: 1em;
+    background-color: transparent;   
+    border: none;
+    border-bottom: 2px solid #000;
 }
+
+
 
 form {
     display: inline-block;
-
-}
-
-label {
-    margin-bottom: 10px;
-    text-align: left;
+    font-weight: bold;
 }
 
 input {
@@ -31,6 +34,7 @@ input {
     margin: 0 auto;
     margin-bottom: 10px;
     margin-left: 5px;
+    font-weight: bold;
 }
 
 input[type="submit"]{

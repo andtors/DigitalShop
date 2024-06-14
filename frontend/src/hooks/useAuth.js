@@ -52,9 +52,12 @@ export default function useAuth() {
         setAuthenticated(false)
         localStorage.removeItem('token')
         api.defaults.headers.Authorization = undefined
+        
         navigate('/')
+        
 
         setFlashMessage(msgText, msgType)
+       
     }
     
     async function login(user){

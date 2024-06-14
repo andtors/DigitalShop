@@ -1,0 +1,41 @@
+.div-order {
+    border: 1px solid #000;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: #000;
+    display: flex;  
+}
+
+
+
+.sub-main-div {
+    justify-content: space-between;
+}
+
+.div-order a {
+    text-decoration: none;
+    font-weight: bold;
+    
+    
+}
+
+.order-number p span{
+    font-weight: bold;
+}
+
+.total-price p span{
+    font-weight: bold;
+}
+
+.order-main-div {
+  margin: 10px;
+  
+}
+
+.div-order {
+    justify-content: space-between;
+}
+.order-main-div h2 {
+    text-align: center;   
+}

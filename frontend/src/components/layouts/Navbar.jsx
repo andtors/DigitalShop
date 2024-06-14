@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import { Link } from "react-router-dom"
 
@@ -7,7 +7,10 @@ import { Context } from '../../context/UserContext'
 import './Navbar.css'
 
 const Navbar = () => {
+
+
     const { authenticated, logout } = useContext(Context)
+
     return (
         <nav className="navbar">
             <div>
@@ -22,13 +25,13 @@ const Navbar = () => {
                 </li>
                 {authenticated ? (<>
                     <li>
-                        <Link className="navbar-link" to="/cart">Carrinho</Link>
+                        <Link className="navbar-link" to='/user/cart'>Carrinho</Link>
                     </li>
                     <li>
                         <Link className="navbar-link" to="/orders">Ordens</Link>
                     </li>
                     <li>
-                        <Link className="navbar-link" to="/edituser">Usuario</Link>
+                        <Link className="navbar-link" to="/edit">Usuario</Link>
                     </li>
                     <li onClick={logout} className="logout-btn">
                         Sair

@@ -11,7 +11,7 @@ module.exports = class OrderController {
     const user = await getUserByToken(req)
 
     const arrayOfProds = []
-
+    
     user.cart.map((p) => {
       arrayOfProds.push(p)
     })
@@ -36,7 +36,8 @@ module.exports = class OrderController {
       user: {
         _id: user._id,
         name: user.name,
-        product: arrayOfProds
+        product: arrayOfProds,
+        address: user.address
       },
     })
 
@@ -68,7 +69,7 @@ module.exports = class OrderController {
 
     const user = await getUserByToken(req)
 
-    const orders = await Order.find({ 'user._id': user._id }).lean()
+    const orders = await Order.find({ 'user._id': user._id })
 
     return res.status(201).send({ orders })
   }
@@ -79,9 +80,9 @@ module.exports = class OrderController {
 
     const user = await getUserByToken(req)
 
-    const orders = await Order.find({ 'user._id': user._id }).lean()
+    const orders = await Order.find({ 'user._id': user._id })
 
-    const order = orders[`${id}`]
+    const order = await orders[`${id}`]
 
     return res.status(201).send({ order })
   }

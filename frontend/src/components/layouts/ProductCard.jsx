@@ -15,13 +15,13 @@ const ProductCard = () => {
 
         
         
-    }, [])
+    }, [setProducts])
   return (
     
     <div className="main-div">
         {products.length > 0 && 
             products.map((product) => (
-                <div className="product-card">
+                <div className="product-card" key={product._id}>
                 <img src={product.image} alt={product.name} />
                 <div className="info-div">
                 <h1 className="product-name">{product.name}</h1>

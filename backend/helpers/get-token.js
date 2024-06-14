@@ -7,4 +7,3 @@ const getToken = (req) => {
 }
 
 module.exports = getToken
-

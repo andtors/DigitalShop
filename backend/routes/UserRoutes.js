@@ -8,6 +8,6 @@ router.post('/register', UserController.register)
 router.get('/checkuser', verifyToken, UserController.getUser)
 router.patch('/cart/addproduct', verifyToken, UserController.addProdToCart)
 router.patch('/cart/removeproduct', verifyToken, UserController.removeProdCart)
-router.patch('/:id', verifyToken, UserController.editUser)
+router.patch('/edit/:id',  verifyToken, UserController.editUser)
 
 module.exports = router

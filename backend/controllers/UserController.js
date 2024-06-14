@@ -117,10 +117,10 @@ module.exports = class UserController {
 
     static async addProdToCart(req, res) {
 
-        const productId = req.body.productId
-
+        const productId =  req.body.productId
+        
         const user = await getUserByToken(req)
-
+        
         const product = await Product.findById({ _id: productId })
 
         const producToAdd = {
@@ -130,11 +130,21 @@ module.exports = class UserController {
             image: product.image,
         }
 
+        const arrayOfProdsId = []
+
+        user.cart.map((p) => {
+            arrayOfProdsId.push(String(p._id))
+        })
+
+        if(arrayOfProdsId.includes(String(productId))){
+            return res.status(401).send({message: 'Produto já inserido no carrinho!'})
+        }
+
         user.cart.push(producToAdd)
 
         try {
 
-            await User.findOneAndUpdate(
+             await User.findOneAndUpdate(
                 { _id: user._id },
                 { $set: user },
                 { new: true })
@@ -188,11 +198,6 @@ module.exports = class UserController {
 
         const user = await getUserByToken(req)
 
-        if (String(user._id) !== id) {
-            return res.status(500).send({ message: 'Acesso negado!' })
-        }
-
-
         if (!name) {
             return res.status(422).json({ message: "O nome é obrigatorio!" })
         } else {
@@ -210,14 +215,6 @@ module.exports = class UserController {
                 message: "E-mail já em uso!"
             })
             return
-        }
-
-        if (!password) {
-            return res.status(422).json({ message: "A senha é obrigatoria!" })
-        }
-
-        if (!confirmPassword) {
-            return res.status(422).json({ message: "A confirmação de senha é obrigatoria!" })
         }
 
         if (password !== confirmPassword) {
@@ -245,7 +242,7 @@ module.exports = class UserController {
 
         try {
 
-            const updatedUser = await User.findByIdAndUpdate({ '_id': id }, updatedData)
+            await User.findByIdAndUpdate({ '_id': id }, updatedData)
 
             return res.status(201).send({ message: 'Usuario atualizado com sucesso!' })
 

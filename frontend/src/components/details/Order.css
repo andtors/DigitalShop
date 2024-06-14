@@ -1,0 +1,46 @@
+.main-div-orderid {
+    margin: 103px 0px 154px 700px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.orderid-image img{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    width: 70px;
+    height: 70px;
+}
+
+.orderid-name {
+    display: flex;
+    
+}
+
+.orderid-price {
+    display: flex;
+}
+
+.sub-main-div {
+    display: flex;
+}
+
+.main-div-orderid p span{
+    text-align: right;
+}
+
+.main-div-orderid h2 {
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.main-div-orderid span {
+    float: right;
+    font-weight: bold;
+}

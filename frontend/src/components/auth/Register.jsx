@@ -30,25 +30,25 @@ const Register = () => {
   return (
     <div className="main-div-register">
       <div className="form-register">
-      <h1>Realize o cadastro para acessar o site!</h1>
+      <h1>Realize o cadastro para comprar no site!</h1>
         <form onSubmit={handleSubmit} >
             <label>Nome
-            <input type="text" name="name" placeholder="Digite seu nome:" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input type="text" name="name" placeholder="Digite seu nome" value={name} onChange={(e) => setName(e.target.value)}/>
             </label>
             <label>E-mail
-            <input type="email" name="email" placeholder="Digite seu e-mail:" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="email" name="email" placeholder="Digite seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
             </label>
             <label>Endereço
-            <input type="text" name="address" placeholder="Digite seu endereço:" value={address} onChange={(e) => setAddress(e.target.value)}/>
+            <input type="text" name="address" placeholder="Digite seu endereço" value={address} onChange={(e) => setAddress(e.target.value)}/>
             </label>
             <label>CPF
-            <input type="number" name="cpf" placeholder="Digite seu CPF:" value={cpf} onChange={(e) => setCpf(e.target.value)}/>
+            <input type="number" name="cpf" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)}/>
             </label>
             <label>Senha
-            <input type="password" name="password" placeholder="Digite sua senha:" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input type="password" name="password" placeholder="Digite sua senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </label>
             <label>Confirme a senha
-            <input type="password" name="confirmPassword" placeholder="Digite novamente sua senha:" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <input type="password" name="confirmPassword" placeholder="Confirme sua senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
             </label>
             <input type="submit" value="Cadastrar"/>
         </form>
